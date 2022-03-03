@@ -76,9 +76,10 @@ body{
   .category-menu {
 	list-style-type: none;
 	margin: 0;
+	border: 1px solid black;
 	padding: 0;
 	width: 200px;
-	background-color: #f1f1f1;
+	background-color: #3cce4f;
   }
   
   .category-menu li a {
@@ -95,7 +96,7 @@ body{
   }
 
  .category-menu .current:link {
-	background-color: #04AA6D;
+	background-color: #7ebea5;
  }
 
  .right{

@@ -36,10 +36,6 @@ class JsonCategoryList extends JsonList{
 		return false;
 	}	
 
-	public function get_list(){
-		return $this->list;
-	}
-
 	private function save(){
 		return file_put_contents($this->filename, json_encode($this->list));
 	}

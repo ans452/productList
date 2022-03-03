@@ -33,12 +33,21 @@ class JsonList{
 		return false;
 	}
 
+	public function get_element_by_id($id){
+		for($i = 0; $i < sizeof($this->list); $i++){
+			if($this->list[$i]->id == $id){
+				return $this->list[$i];
+			}
+		}
+		return false;
+	}
+
 	public function get_list(){
 		return $this->list;
 	}
 }
 
 include 'JsonProductList.php';
-include 'JsonCAtegoryList.php';
+include 'JsonCategoryList.php';
 
 ?>
