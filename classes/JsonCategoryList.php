@@ -1,15 +1,6 @@
 <?php
 
-require 'JsonList.php';
-define("CATEGORY_LIST", "categories.json");
-
 class JsonCategoryList extends JsonList{
-
-	public function __construct(){
-		if(file_exists(CATEGORY_LIST) && ($json = file_get_contents(CATEGORY_LIST)) != null){
-			$this->list = json_decode($json);
-		}
-	}
 
 	public function add_category($category_name){
 		if(!$this->name_exists($category_name)){
@@ -50,17 +41,9 @@ class JsonCategoryList extends JsonList{
 	}
 
 	private function save(){
-		return file_put_contents(CATEGORY_LIST, json_encode($this->list));
+		return file_put_contents($this->filename, json_encode($this->list));
 	}
 }
 
-// $cars = new Category("Cats");
-// // print_r($cars);
-// $drinks = new Category("Drinks");
-// $animals = new Category("Animals");
-// $journey = new Category("Journey");
-// $nature = new Category("Nature");
-// $list = new JsonCategoryList();
-// $list->add_category("Naruson");
 
 ?>

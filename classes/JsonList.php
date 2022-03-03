@@ -3,10 +3,13 @@
 class JsonList{
 
 	protected $list = array();
+	protected String $filename;
 
-
-	public function get_list(){
-		return $this->list;
+	public function __construct(String $filename){
+		if(file_exists($filename) && ($json = file_get_contents($filename)) != null){
+			$this->list = json_decode($json);
+		}
+		$this->filename = $filename;
 	}
 
 	protected function get_id(){
@@ -17,7 +20,7 @@ class JsonList{
 		return $result;
 	}
 
-	protected function id_exists($id){
+	public function id_exists($id){
 		foreach($this->list as $element){
 			if($element->id == $id) return true;
 		}
@@ -30,7 +33,12 @@ class JsonList{
 		return false;
 	}
 
-
+	public function get_list(){
+		return $this->list;
+	}
 }
+
+include 'JsonProductList.php';
+include 'JsonCAtegoryList.php';
 
 ?>

@@ -1,14 +1,7 @@
 <?php
-define("PRODUCT_LIST", "products.json");
-require 'JsonList.php';
+
 
 class JsonProductList extends JsonList{
-
-	public function __construct(){
-		if(file_exists(PRODUCT_LIST) && ($json = file_get_contents(PRODUCT_LIST)) != null){
-			$this->list = json_decode($json);
-		}
-	}
 
 	public function add_product($product_name, $category_id){
 		$result = new stdClass();
@@ -55,7 +48,7 @@ class JsonProductList extends JsonList{
 	}	
 
 	private function save(){
-		return file_put_contents(PRODUCT_LIST, json_encode($this->list));
+		return file_put_contents($this->filename, json_encode($this->list));
 	}
 }
 
