@@ -78,28 +78,36 @@ body{
 	margin: 0;
 	border: 1px solid black;
 	padding: 0;
-	width: 200px;
+	display:flex;
+	justify-content: space-between;
+	width: 100%;
 	background-color: #3cce4f;
   }
   
-  .category-menu li a {
+  .category-menu a {
 	display: block;
+	text-align: center;
+	width: 100%;
 	color: #000;
 	padding: 8px 16px;
 	text-decoration: none;
   }
   
   /* Change the link color on hover */
-  .category-menu li a:hover {
+  .category-menu a:hover {
 	background-color: #555;
 	color: white;
   }
 
- .category-menu .current:link {
-	background-color: #7ebea5;
+ .category-menu .current {
+	background-color: #ddd34f;
+ }
+ 
+ .paginator{
+	 width:20%;
+	 margin:auto;
+	 text-align: center;
+	 background-color: #04AA6D;
  }
 
- .right{
-	 float:right;
-	 padding-top: 1rem;
- }
+ 
