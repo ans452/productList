@@ -42,5 +42,5 @@ class Controller{
 
 include 'ViewingController.php';
 include 'RemovingController.php';
-
+include 'InsertingController.php';
 ?>

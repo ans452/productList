@@ -8,88 +8,35 @@ session_start();
 
 // $list = new JsonProductList('data/products.json');
 // $catlist = new JsonCategoryList('data/categories.json');
-// $catlist->add_category('Humans');
-// $catlist->add_category('Oppa');
-// $catlist->add_category('Privet');
-// $catlist->add_category('Astalavista');
-// $catlist->add_category('Animals');
-// $catlist->add_category('Music');
-// $catlist->add_category('HipHip');
-// $catlist->add_category('Tarada');
-// $catlist->add_category('Loool');
+// $catlist->add_category('Technology');
+// $catlist->add_category('Clothes');
+// $catlist->add_category('Games');
 
 
-// $list->add_product("Andres", "2");
-// $list->add_product("Andres", "2");
+// $list->add_product("1", "1");
+// $list->add_product("2", "1");
 
-// $list->add_product("Andres", "2");
-// $list->add_product("A", "2");
-// $list->add_product("A", "3");
+// $list->add_product("3", "2");
+// $list->add_product("4", "2");
+// $list->add_product("5", "3");
 
-// $list->add_product("A", "2");
+// $list->add_product("6", "3");
 
-// $list->add_product("A", "3");
-
-// $list->add_product("A", "1");
-// $list->add_product("Andres", "2");
-// $list->add_product("Andres", "2");
-
-// $list->add_product("Andres", "2");
-// $list->add_product("A", "2");
-// $list->add_product("A", "3");
-
-// $list->add_product("A", "2");
-
-// $list->add_product("A", "3");
-
-// $list->add_product("A", "1");
-// $list->add_product("Andres", "2");
-// $list->add_product("Andres", "2");
-
-// $list->add_product("Andres", "2");
-// $list->add_product("A", "2");
-// $list->add_product("A", "3");
-
-// $list->add_product("A", "2");
-
-// $list->add_product("A", "3");
-
-// $list->add_product("A", "1");
-// $list->add_product("Andres", "2");
-// $list->add_product("Andres", "2");
-
-// $list->add_product("Andres", "2");
-// $list->add_product("A", "2");
-// $list->add_product("A", "3");
-
-// $list->add_product("A", "2");
-
-// $list->add_product("A", "3");
-
-// $list->add_product("A", "1");
-// $list->add_product("Andres", "2");
-// $list->add_product("Andres", "2");
-
-// $list->add_product("Andres", "2");
-// $list->add_product("A", "2");
-// $list->add_product("A", "3");
-
-// $list->add_product("A", "2");
-
-// $list->add_product("A", "3");
-
-// $list->add_product("A", "1");
-
+// $list->add_product("7", "3");
 
 $viewingController = new ViewingController();
 if($viewingController->is_error()) header("Location: notfound.php");
 // var_dump($_GET);
 $products = $viewingController->get_product_list();
 $categories = $viewingController->get_category_list();
-$_SESSION['category_id'] = $_GET['category_id'];
 
+$category_id = !empty($_GET['category_id']) ? $_GET['category_id'] : "";
+$page = !empty($_GET['page']) ? $_GET['page'] : "";
 
-
+if(!empty($_GET['category_id']))
+	$_SESSION['category_id'] = $_GET['category_id'];
+if(!empty($_GET['category_id'])) 
+	$_SESSION['page'] = $_GET['page'];
 ?>
 
 
@@ -106,20 +53,11 @@ $_SESSION['category_id'] = $_GET['category_id'];
 	<h1><?php echo $viewingController->get_heading();?></h1>
 	<!-- For viewing categories -->
 <nav class="category-menu">
-	<a <?php if(empty($_GET['category_id'])) echo "class=\"current\""; ?> href="index.php">All Categories</a>
+	<a <?php if(!$category_id) echo "class=\"current\""; ?> href="index.php">All Categories</a>
 <?php foreach($categories as $category){  ?>
-<a  class="<?php if($viewingController->is_current_category($category->id)) echo "current"; ?>" href="index.php?category_id=<?php echo $category->id; ?>"><?php echo $category->name ?></a>
+<a  class="<?php if($category_id == $category->id) echo "current"; ?>" href="index.php?category_id=<?php echo $category->id; ?>"><?php echo $category->name ?></a>
   <?php } ?>
 </nav>
-
-
-<?php if(!empty($products)){ ?>
-<a href="delete.php?category_id=<?php echo $_GET['category_id'];?>&products=true">Remove all products in <?php echo $viewingController->get_heading(); ?></a>
-<?php }?>
-<br>
-<?php if(!empty($_GET['category_id'])){  ?>
-<a href="delete.php?category_id=<?php echo $_GET['category_id']; ?>&categories=true">Delete <?php echo $viewingController->get_heading(); ?> category</a>
-<?php } ?>
 	<table id="productTable">
 		<tr>
 			<th>
@@ -146,13 +84,37 @@ $_SESSION['category_id'] = $_GET['category_id'];
 		<?php } }else echo "Empty :("?>
 	</table>
 
+	<nav class="removingSection">
+	<?php if(!empty($products)){ ?>
+	
+		<a href="delete.php?category_id=<?php echo $category_id;?>&products=true">Remove all products in <?php echo $viewingController->get_heading(); ?></a>
+		<?php }?>
+	
+		<?php if($category_id){  ?>
+		<a href="delete.php?category_id=<?php echo $category_id; ?>&categories=true">Delete <?php echo $viewingController->get_heading(); ?> category</a>
+<?php } ?>
+	</nav>
+
+
+	<nav class = "edit">
+		<a href="">Create new product</a>
+		<a href="">Create new category</a>
+		<a href="">Edit category</a>
+	</nav>
+
+	<?php if(!empty($products)){ ?>
+
 	<div class="paginator">
 		<nav>
-			<a href="">1</a>
-			<a href="">2</a>
-			<a href="">3</a>
+			<?php $counter = $viewingController->get_number_of_pages();
+			for($i = 0; $i < $counter; $i++){
+			?>
+			<a href="index.php?category_id=<?php echo $category_id; ?>&page=<?php echo $i+1; ?>"><?php echo $i+1; ?></a>
+			<?php } ?>
 		</nav>
 	</div>
+	<?php } ?> 
+
 
 </body>
 </html>

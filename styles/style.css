@@ -7,6 +7,7 @@ body{
 	width: 100%;
 	border-collapse: collapse;
 	font-size: 2rem;
+	border-bottom:3px solid #04AA6D;
 	/* border: 1px solid black; */
 }
 
@@ -24,6 +25,10 @@ body{
 	visibility:visible;
 	opacity: 1;
 }
+
+/* #productTable tr:last-child{
+	border-bottom: 2px solid #1b9c6d;
+} */
 
 #productTable th {
   padding-top: 12px;
@@ -67,6 +72,7 @@ body{
 	display: inline-block;
   }
   
+
  .buttons a:last-child:hover, a:last-child:active {
 	background-color: rgb(114, 29, 29);
 	color: white;
@@ -100,14 +106,58 @@ body{
   }
 
  .category-menu .current {
-	background-color: #ddd34f;
+	background-color: white;
  }
  
  .paginator{
 	 width:20%;
 	 margin:auto;
 	 text-align: center;
-	 background-color: #04AA6D;
+	padding-top: 6rem;	 
  }
 
- 
+ .paginator a:link {
+	 text-decoration: none;
+ }
+
+ .removingSection {
+	float: right;
+	padding-top: 0.1rem;
+	border: 1px solid red;
+	 
+ }
+
+ .removingSection a:link, .removingSection a:visited {
+	 margin: 0px;
+	 padding: 0.3rem;
+	 font-weight: bold;
+	 text-decoration: none;
+	 display: block;
+	 /* border: 1px solid rgb(197, 28, 28); */
+ }
+
+ .removingSection a:hover {
+	background-color: #d41111d2;
+	color:rgb(0, 0, 0);
+	transition: 0.3s ease;
+ }
+
+ .edit {
+	float: left;
+	padding-top: 0.1rem;
+	border: 1px solid rgb(217, 219, 52);
+ }
+ .edit a:link, .edit a:visited {
+	margin: 0px;
+	padding: 0.3rem;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+	 /* border:1px solid #c5c21c; */
+ }
+
+ .edit a:hover {
+	background-color: #dde01ed2;
+	color:rgb(0, 0, 0);
+	transition: 0.3s ease;
+ }

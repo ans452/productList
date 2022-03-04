@@ -1,22 +1,29 @@
 <?php
 
 
+// per page: 5
+// amount of elements 8
+define("PRODUCTS_PER_PAGE", 5);
+
+include "utils/Paginator.php";
+
 class ViewingController extends Controller{
 
-	
-	// public function __construct($product_file = "data/products.json", $category_file = "data/categories.json"){
-	// 	$this->request = $_GET;
-	// 	$this->category_list = new JsonCategoryList($category_file);
-	// 	$this->product_list = new JsonProductList($product_file);
-	
-	// }
-
-	
 	public function get_product_list(){
-		if($this->category_id != null){
-			return $this->product_list->get_by_category_id($this->category_id);
-		}
-		return $this->product_list->get_list();
+		$list = $this->get_product_list_by_category_id();
+		$paginator = new Paginator((!empty($_GET['page']) ? $_GET['page'] : 1), PRODUCTS_PER_PAGE, sizeof($list));
+		return $paginator->cut_array($list);
+	}
+
+	public function get_number_of_pages(){
+		$paginator = $this->get_paginator();
+		return $paginator->get_total_number_of_pages();
+	}
+
+	private function get_paginator(){
+		$list = $this->get_product_list_by_category_id();
+		$paginator = new Paginator((!empty($_GET['page']) ? $_GET['page'] : 1), PRODUCTS_PER_PAGE, sizeof($list));
+		return $paginator;
 	}
 
 	public function get_category_list(){
@@ -46,6 +53,13 @@ class ViewingController extends Controller{
 	public function get_requested_category_id(){
 		if(!empty($this->category_id))
 			return $this->category_id;
+	}
+
+	private function get_product_list_by_category_id(){
+		if($this->category_id != null){
+			return $this->product_list->get_by_category_id($this->category_id);
+		}
+		return $this->product_list->get_list();
 	}
 
 }
