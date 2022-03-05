@@ -137,7 +137,7 @@ body{
 
  .removingSection {
 	float: right;
-	padding-top: 0.1rem;	 
+	/* padding-top: 0.1rem;	  */
  }
 
  .removingSection a:link, .removingSection a:visited {
