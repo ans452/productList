@@ -89,7 +89,7 @@ if(!empty($_GET['category_id']))
 	<nav class="removingSection">
 	<?php if(!empty($products)){ ?>
 	
-		<a href="delete.php?category_id=<?php echo $category_id;?>&products=true">Remove all products in <?php echo $viewingController->get_heading(); ?></a>
+		<a href="delete.php?category_id=<?php echo $category_id;?>&products=true">Delete all products in <?php echo $viewingController->get_heading(); ?></a>
 		<?php }?>
 	
 		<?php if($category_id){  ?>
