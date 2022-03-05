@@ -33,7 +33,7 @@ body{
   padding-bottom: 12px;
   text-align: left;
   background-color: #FFEBCD;
-  color: black;
+  color: white;
 }
 
 
@@ -135,15 +135,15 @@ body{
 
  .removingSection {
 	float: right;
-	padding-top: 0.1rem;
-	border: 2px solid rgb(138, 28, 28);
-	 
+	padding-top: 0.1rem;	 
  }
 
  .removingSection a:link, .removingSection a:visited {
 	 margin: 0px;
 	 padding: 0.3rem;
 	 /* font-weight: bold; */
+	 border: 2px solid rgb(138, 28, 28);
+
 	 text-decoration: none;
 	 color: black;
 	 display: block;
