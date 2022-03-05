@@ -17,6 +17,7 @@ class JsonProductList extends JsonList{
 		if(is_array($this->list)){
 		for($i = 0; $i < sizeof($this->list); $i++){
 			if($this->list[$i]->id == $product_id){
+				unlink($this->list[$i]->image_path);
 				array_splice($this->list, $i, 1);
 				return $this->save();
 			}
