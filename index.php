@@ -58,6 +58,7 @@ if(!empty($_GET['category_id']))
 <a  class="<?php if($category_id == $category->id) echo "current"; ?>" href="index.php?category_id=<?php echo $category->id; ?>"><?php echo $category->name ?></a>
   <?php } ?>
 </nav>
+<?php if(!$products){}else{ ?>
 	<table id="productTable">
 		<tr>
 			<th>
@@ -81,8 +82,9 @@ if(!empty($_GET['category_id']))
 				</div>
 			</td>
 		</tr>
-		<?php } }else echo "Empty :("?>
+		<?php }?>
 	</table>
+	<?php  } }?>
 
 	<nav class="removingSection">
 	<?php if(!empty($products)){ ?>
