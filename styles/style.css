@@ -8,6 +8,7 @@ body{
 	width: 100%;
 	border-collapse: collapse;
 	margin-bottom: 0.8rem;
+	margin-top:0.3rem;
 	border-bottom:3px solid #2f556b ;
 	/* border: 1px solid black; */
 }
@@ -62,7 +63,7 @@ body{
 .buttons a:first-child:link, a:first-child:visited {
 	background-color: white;
 	color: black;
-	border: 2px solid green;
+	border: 2px solid #2f556b;
 	padding: 0.2rem 20px;
 	text-decoration: none;
 	display: inline-block;
@@ -135,11 +136,11 @@ body{
 
  .removingSection {
 	float: right;
-	padding-top: 0.5rem;	 
+	padding-top: 0.3rem;	 
  }
 
  .removingSection a:link, .removingSection a:visited {
-	 margin: 0px;
+	 margin-bottom: 0.3rem;
 	 padding: 0.3rem;
 	 /* font-weight: bold; */
 	 border: 2px solid rgb(138, 28, 28);
