@@ -32,7 +32,7 @@ body{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #FFEBCD;
   color: white;
 }
 
@@ -136,7 +136,7 @@ body{
  .removingSection {
 	float: right;
 	padding-top: 0.1rem;
-	border: 1px solid red;
+	border: 2px solid rgb(138, 28, 28);
 	 
  }
 
