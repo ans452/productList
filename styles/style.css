@@ -7,7 +7,8 @@ body{
 #productTable {
 	width: 100%;
 	border-collapse: collapse;
-	font-size: 2rem;
+
+	
 	border-bottom:3px solid #04AA6D;
 	/* border: 1px solid black; */
 }
@@ -183,7 +184,6 @@ body{
 	width: 100%;
 	text-align: center;
 	border: 1px solid red;
-	font-size: 1.5rem;
 	color: brown;
 
 }	
