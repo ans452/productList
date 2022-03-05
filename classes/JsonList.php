@@ -26,7 +26,7 @@ class JsonList{
 		}
 		return false;
 	}
-	protected function name_exists($name){
+	public function name_exists($name){
 		foreach($this->list as $element){
 			if($element->name == $name) return true;
 		}

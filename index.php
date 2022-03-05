@@ -76,7 +76,7 @@ if(!empty($_GET['category_id']))
 			<td>
 				<?php echo $product->name; ?>
 				<div class = "buttons">
-					<a href="edit.php?category_id=<?php echo $product->category_id;?>&product_id=<?php echo $product->id;?>">Edit</a>
+					<a href="edit_product.php?category_id=<?php echo $product->category_id;?>&product_id=<?php echo $product->id;?>">Edit</a>
 					<a href="delete.php?product_id=<?php echo $product->id;?>">Remove</a>
 				</div>
 			</td>
@@ -97,9 +97,13 @@ if(!empty($_GET['category_id']))
 
 
 	<nav class = "edit">
-		<a href="">Create new product</a>
-		<a href="">Create new category</a>
-		<a href="">Edit category</a>
+		<?php if($categories){ ?>
+		<a href="create_product.php">Create new product</a>
+		<?php } ?>
+		<a href="create_category.php">Create new category</a>
+		<?php if($category_id){ ?>
+		<a href="edit_category.php?category_id=<?php echo $category_id; ?>">Edit category</a>
+		<?php } ?>
 	</nav>
 
 	<?php if(!empty($products)){ ?>

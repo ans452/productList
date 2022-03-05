@@ -36,6 +36,32 @@ class Controller{
 		else return NOT_FOUND;
 	}
 
+	public function get_category_by_category_id($category_id){
+		return $this->category_list->get_element_by_id($category_id);
+	}
+
+	public function get_category_list(){
+		return $this->category_list->get_list();
+	}
+
+	public function is_current_category($id){
+		return $id == $this->category_id;
+	}
+
+
+	public function get_requested_category_id(){
+		if(!empty($this->category_id))
+			return $this->category_id;
+	}
+
+	public function get_product_by_id($id){
+		
+		return $this->product_list->get_element_by_id($id);
+			
+		
+	}
+
+
 	
 }
 
@@ -43,4 +69,5 @@ class Controller{
 include 'ViewingController.php';
 include 'RemovingController.php';
 include 'InsertingController.php';
+include 'EditingController.php';
 ?>

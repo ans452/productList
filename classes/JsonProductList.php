@@ -35,11 +35,12 @@ class JsonProductList extends JsonList{
 	}
 
 
-	public function update($product_id, $new_name){
+	public function update($product_id, $category_id, $new_name){
 		if(is_array($this->list)){
 			for($i = 0; $i < sizeof($this->list); $i++){
 				if($this->list[$i]->id == $product_id){
 					$this->list[$i]->name = $new_name;
+					$this->list[$i]->category_id = $category_id;
 					return $this->save();
 				}
 			}

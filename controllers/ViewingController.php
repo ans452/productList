@@ -26,10 +26,6 @@ class ViewingController extends Controller{
 		return $paginator;
 	}
 
-	public function get_category_list(){
-		return $this->category_list->get_list();
-	}
-
 	public function is_error(){
 		return $this->get_status_by_category_id_request() == NOT_FOUND;
 	}
@@ -40,19 +36,6 @@ class ViewingController extends Controller{
 			$category = $this->category_list->get_element_by_id($this->category_id);
 			return $category->name;
 		}
-	}
-
-	public function is_current_category($id){
-		return $id == $this->category_id;
-	}
-
-	public function get_category_by_category_id($category_id){
-		return $this->category_list->get_element_by_id($category_id);
-	}
-
-	public function get_requested_category_id(){
-		if(!empty($this->category_id))
-			return $this->category_id;
 	}
 
 	private function get_product_list_by_category_id(){
