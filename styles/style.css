@@ -100,7 +100,7 @@ body{
 	display:flex;
 	justify-content: space-between;
 	width: 100%;
-	background-color: #3cce4f;
+	background-color: #8FBC8F;
   }
   
   .category-menu a {
@@ -121,7 +121,7 @@ body{
  .category-menu .current {
 	background-color: white;
  }
- 
+
  .paginator{
 	 width:20%;
 	 margin:auto;
