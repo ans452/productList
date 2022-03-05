@@ -34,10 +34,12 @@ else {
 		<div id = "message"><p>Successful</p></div>
 		
 		<?php } ?>
-	<form id = "create"action="create_product.php" method="POST">
+	<form id = "create"action="create_product.php" method="POST" enctype="multipart/form-data">
 		<h1>Create Product</h1>
 		<label for="name">Name of product: </label>
 		<input name="product_name" id="name" type="text"><br>
+		<label for="image">Select image to upload: </label>
+		<input type="file" name= "image" id="image"><br>
 		<label for="categories">Choose category: </label>
 		<select name="category_id" id="categories">
 			<?php foreach($categories as $category){ ?>

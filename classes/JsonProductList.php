@@ -3,11 +3,12 @@
 
 class JsonProductList extends JsonList{
 
-	public function add_product($product_name, $category_id){
+	public function add_product($product_name, $category_id, $image_path){
 		$result = new stdClass();
 		$result->id = $this->get_id();
 		$result->category_id = $category_id;
 		$result->name = $product_name;
+		$result->image_path = $image_path;
 		array_push($this->list, $result);
 		return $this->save();
 	}

@@ -2,6 +2,8 @@
 
 
 include 'classes/JsonList.php';
+include "utils/Paginator.php";
+include "utils/ImgDownloader.php";
 
 define("NOT_FOUND", -1);
 define("NO_REQUESTS", 0);

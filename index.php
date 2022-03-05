@@ -65,6 +65,12 @@ if(!empty($_GET['category_id']))
 				Category name
 			</th>
 			<th>
+				Image
+			</th>
+			<th>
+				Description
+			</th>
+			<th>
 				Product name
 			</th>
 		</tr>
@@ -73,6 +79,13 @@ if(!empty($_GET['category_id']))
 		<?php if(!empty($products)){foreach($products as $product){  ?>
 			<td>
 				<?php echo $viewingController->get_category_by_category_id($product->category_id)->name; ?>
+			</td>
+			<td class="img">
+				<img src="<?php echo $product->image_path;?>" alt="No image">
+			</td>
+			<td>
+				<p>
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, se</p>
 			</td>
 			<td>
 				<?php echo $product->name; ?>

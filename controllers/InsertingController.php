@@ -17,12 +17,19 @@ class InsertingController extends Controller{
 	}
 
 	public function create_product(){
-		if(empty($this->product_name))
+		if(empty($this->product_name)){
 			$this->errors[] = "Empty product name input";
-		if(!$this->is_valid_category_id())
+			return;
+		}
+		if(!$this->is_valid_category_id()){
 			$this->errors[] = "Do not try to hack me :(";
-		if(!$this->errors) 
-			$this->product_list->add_product($this->product_name, $this->category_id);
+			return;
+		}
+		if(!($image_path = ImgDownloader::upload_img($_FILES['image']))){ 
+			$this->errors[] = "Couldn't upload the image. Use appropriate img formats or leave the image input empty"; 
+			return;
+		}
+		$this->product_list->add_product($this->product_name, $this->category_id, $image_path);
 	}
 
 	public function create_category(){

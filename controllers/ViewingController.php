@@ -5,7 +5,6 @@
 // amount of elements 8
 define("PRODUCTS_PER_PAGE", 5);
 
-include "utils/Paginator.php";
 
 class ViewingController extends Controller{
 
