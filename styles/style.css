@@ -8,7 +8,7 @@ body{
 	width: 100%;
 	border-collapse: collapse;
 	margin-bottom: 0.8rem;
-	border-bottom:3px solid #FFEBCD;
+	border-bottom:3px solid #696969;
 	/* border: 1px solid black; */
 }
 
@@ -32,7 +32,7 @@ body{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #FFEBCD;
+  background-color: #696969;
   color: white;
 }
 
@@ -135,7 +135,7 @@ body{
 
  .removingSection {
 	float: right;
-	padding-top: 0.1rem;	 
+	padding-top: 0.2rem;	 
  }
 
  .removingSection a:link, .removingSection a:visited {
