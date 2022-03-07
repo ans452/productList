@@ -3,12 +3,13 @@
 
 class JsonProductList extends JsonList{
 
-	public function add_product($product_name, $category_id, $image_path){
+	public function add_product($product_name, $category_id, $image_path, $description){
 		$result = new stdClass();
 		$result->id = $this->get_id();
 		$result->category_id = $category_id;
-		$result->name = $product_name;
+		$result->name = test_input($product_name);
 		$result->image_path = $image_path;
+		$result->description = test_input($description);
 		array_push($this->list, $result);
 		return $this->save();
 	}
@@ -37,12 +38,17 @@ class JsonProductList extends JsonList{
 	}
 
 
-	public function update($product_id, $category_id, $new_name){
+	public function update($product_id, $category_id, $new_name, $description, $image_path=null){
 		if(is_array($this->list)){
 			for($i = 0; $i < sizeof($this->list); $i++){
 				if($this->list[$i]->id == $product_id){
-					$this->list[$i]->name = $new_name;
+					$this->list[$i]->name = test_input($new_name);
 					$this->list[$i]->category_id = $category_id;
+					$this->list[$i]->description = test_input($description);
+					if($image_path != null){
+						unlink($this->list[$i]->image_path);
+						$this->list[$i]->image_path = $image_path;
+					}
 					return $this->save();
 				}
 			}

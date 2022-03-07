@@ -13,7 +13,10 @@ if(!empty($_GET['product_id'])){
 	$remover->delete_product();
 }
 else if(!empty($_GET['products'])){
-		if(empty($_GET['category_id'])) unset($_SESSION['category_id']);
+		if(empty($_GET['category_id'])){
+			unset($_SESSION['category_id']);
+			$category_id = "";
+			}
 		$remover->delete_products_by_category_id();
 		
 	}

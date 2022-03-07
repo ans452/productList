@@ -1,5 +1,7 @@
 <?php
 
+include 'utils/validation.php';
+
 class JsonList{
 
 	protected $list = array();

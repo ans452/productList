@@ -36,11 +36,11 @@ else {
 		<?php } ?>
 	<form id = "create"action="create_product.php" method="POST" enctype="multipart/form-data">
 		<h1>Create Product</h1>
-		<label for="name">Name of product: </label>
+		<label for="name">Name of product*: </label>
 		<input name="product_name" id="name" type="text"><br>
 		<label for="image">Select image to upload: </label>
 		<input type="file" name= "image" id="image"><br>
-		<label for="categories">Choose category: </label>
+		<label for="categories">Choose category*: </label>
 		<select name="category_id" id="categories">
 			<?php foreach($categories as $category){ ?>
 			<option value="<?php echo $category->id; ?>">
@@ -49,7 +49,9 @@ else {
 			<?php } ?>
 		</select>
 		<br>
-		<input type="submit" value="Submit" name="submit">
+		<label for="description">Description:</label>
+		<textarea name="description" id="description" cols="50" rows="5"></textarea>
+		<br><input type="submit" value="Submit" name="submit">
 	</form>
 		<a href="index.php">To the main page...</a>
 </body>

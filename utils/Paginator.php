@@ -61,16 +61,4 @@ class Paginator {
 	}
 
 }
-
-// $array = [1,2,3,4,5,6,7,8,9,10,1];
-// $page = 4;
-// $elements_per_page = 5;
-// $amount_of_elements = sizeof($array);
-
-// $paginator = new Paginator(null, $elements_per_page, 10);
-
-// echo "Total NUmber of pages:".$paginator->get_total_number_of_pages()."\n";
-// echo "Current Page: ".$paginator->get_page()."\n";
-// echo "Cut of array:\n";
-// print_r($paginator->cut_array($array));
 ?>

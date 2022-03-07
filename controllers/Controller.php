@@ -57,10 +57,7 @@ class Controller{
 	}
 
 	public function get_product_by_id($id){
-		
 		return $this->product_list->get_element_by_id($id);
-			
-		
 	}
 
 

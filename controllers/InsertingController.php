@@ -4,6 +4,7 @@ class InsertingController extends Controller{
 
 	private $category_name;
 	private $product_name;
+	private $description;
 	public $errors = array();
 
 
@@ -13,7 +14,8 @@ class InsertingController extends Controller{
 	if(!empty($_POST['category_id']) && is_numeric($_POST['category_id'])) $this->category_id = $_POST['category_id'];
 	if(!empty($_POST['product_name'])) $this->product_name = $_POST['product_name'];
 	if(!empty($_POST['category_name'])) $this->category_name = $_POST['category_name']; 
-	
+	if(!empty($_POST['description'])) $this->description = $_POST['description']; 
+
 	}
 
 	public function create_product(){
@@ -25,11 +27,19 @@ class InsertingController extends Controller{
 			$this->errors[] = "Do not try to hack me :(";
 			return;
 		}
+		if(strlen($this->product_name) > 50){
+			$this->errors[] = "Product name is too long";
+			return;
+		}
+		if(!empty($_FILES['image']['name'])){
 		if(!($image_path = ImgDownloader::upload_img($_FILES['image']))){ 
 			$this->errors[] = "Couldn't upload the image. Use appropriate img formats or leave the image input empty"; 
 			return;
+			}
 		}
-		$this->product_list->add_product($this->product_name, $this->category_id, $image_path);
+		else $image_path == null;
+		$this->product_list->add_product($this->product_name, $this->category_id, $image_path,$this->description);
+		
 	}
 
 	public function create_category(){

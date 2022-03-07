@@ -5,25 +5,6 @@ include 'controllers/Controller.php';
 session_start();
 
 
-
-// $list = new JsonProductList('data/products.json');
-// $catlist = new JsonCategoryList('data/categories.json');
-// $catlist->add_category('Technology');
-// $catlist->add_category('Clothes');
-// $catlist->add_category('Games');
-
-
-// $list->add_product("1", "1");
-// $list->add_product("2", "1");
-
-// $list->add_product("3", "2");
-// $list->add_product("4", "2");
-// $list->add_product("5", "3");
-
-// $list->add_product("6", "3");
-
-// $list->add_product("7", "3");
-
 $viewingController = new ViewingController();
 if($viewingController->is_error()) header("Location: notfound.php");
 // var_dump($_GET);
@@ -74,9 +55,9 @@ if(!empty($_GET['category_id']))
 				Product name
 			</th>
 		</tr>
-		<tr>
 
 		<?php if(!empty($products)){foreach($products as $product){  ?>
+			<tr>
 			<td>
 				<?php echo $viewingController->get_category_by_category_id($product->category_id)->name; ?>
 			</td>
@@ -85,7 +66,9 @@ if(!empty($_GET['category_id']))
 			</td>
 			<td>
 				<p>
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, se</p>
+					<?php echo substr($product->description,0,50)."...";?>
+				</p>
+				<a href="product.php?product_id=<?php echo $product->id; ?>">Read more....</a>
 			</td>
 			<td>
 				<?php echo $product->name; ?>
