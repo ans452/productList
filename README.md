@@ -4,6 +4,7 @@ Its functionality includes:
 - viewing products by categories
 - deleting products/categories
 - editing products/categories
+- adding products/categories
 
 To deploy this application, it is needed to set it up on the server. The working version is available by the link:
 https://enos.itcollege.ee/~anarus/admission/index.php
