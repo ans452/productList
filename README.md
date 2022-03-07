@@ -11,7 +11,7 @@ Also, folder "utils" can be found in the repository where additional functionali
 Controllers are designed to process the HTTP requests and fulfil the user's needs -- view, insert, edit, delete. 
 At the highest level of abstraction the developer just needs to initialize the object and use one of its public methods:
 ```
----------------------------------example---
+---------------example------------------------
 $viewer = new ViewingController();
 $products = $viewer->get_product_list();
 ----------------------------------------------
