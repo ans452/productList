@@ -11,8 +11,8 @@ At the highest level of abstraction the developer just needs to initialize the o
 
 
 
----example-------------------------------------
+```---example-------------------------------------
 $viewer = new ViewingController();
 $products = $viewer->get_product_list();
-----------------------------------------------
+----------------------------------------------```
 
