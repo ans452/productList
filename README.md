@@ -1,3 +1,5 @@
+Author: Andres Naruson
+
 It is a small web application designed to manage the list of products. 
 Its functionality includes:
 
