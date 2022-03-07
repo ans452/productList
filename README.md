@@ -8,7 +8,10 @@ Its functionality includes:
 - editing products/categories
 - adding products/categories
 
-To deploy this application, it is needed to set it up on the server. The working version is available by the link:
+To deploy this application, it is needed to set it up on the server.
+There might be some problems with permissions to the data and uploads folder,
+use chmod to solve it.
+The working version is available by the link:
 https://enos.itcollege.ee/~anarus/admission/index.php
 
 Mentioned above functionality is reached via the classes communicating with JSON files directly and controllers that are mediators between JSON encoding issues and user's needs.
